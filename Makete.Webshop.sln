@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Makete.Webshop", "Makete.Webshop\Makete.Webshop.csproj", "{7D6C7EBD-AAE3-4F56-84ED-FC6D3029B4F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Makete.Webshop.Domain", "Makete.Webshop.Domain\Makete.Webshop.Domain.csproj", "{4CCC9A74-C7EA-44A3-9569-1C10874543F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Makete.Webhop.UnitTesting", "Makete.Webhop.UnitTesting\Makete.Webhop.UnitTesting.csproj", "{AACC0883-1206-4B8D-BDEB-166CAF160111}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Makete.Webshop.Data", "Makete.Webshop.Data\Makete.Webshop.Data.csproj", "{05598785-F6C0-4BE1-9FC8-E0751D9546CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D6C7EBD-AAE3-4F56-84ED-FC6D3029B4F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D6C7EBD-AAE3-4F56-84ED-FC6D3029B4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D6C7EBD-AAE3-4F56-84ED-FC6D3029B4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D6C7EBD-AAE3-4F56-84ED-FC6D3029B4F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CCC9A74-C7EA-44A3-9569-1C10874543F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CCC9A74-C7EA-44A3-9569-1C10874543F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CCC9A74-C7EA-44A3-9569-1C10874543F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CCC9A74-C7EA-44A3-9569-1C10874543F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AACC0883-1206-4B8D-BDEB-166CAF160111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AACC0883-1206-4B8D-BDEB-166CAF160111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AACC0883-1206-4B8D-BDEB-166CAF160111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AACC0883-1206-4B8D-BDEB-166CAF160111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05598785-F6C0-4BE1-9FC8-E0751D9546CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05598785-F6C0-4BE1-9FC8-E0751D9546CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05598785-F6C0-4BE1-9FC8-E0751D9546CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05598785-F6C0-4BE1-9FC8-E0751D9546CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65C5B2D4-4D08-4EB5-A040-1F6F18D42015}
+	EndGlobalSection
+EndGlobal
