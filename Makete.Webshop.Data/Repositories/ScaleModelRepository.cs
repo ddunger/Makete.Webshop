@@ -1,30 +1,43 @@
 ﻿using Makete.Webshop.Domain.Interfaces;
 using Makete.Webshop.Domain.Models;
+using Microsoft.Extensions.Configuration;
+
+
+
 
 namespace Makete.Webshop.Data.Repositories
 {
     public class ScaleModelRepository : IScaleModelRepository
     {
 
-        // simulacija baze podataka
+        private readonly string _connectionString = string.Empty;
+
+        public ScaleModelRepository(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("DefaultConnection")!;
+        }
+
+
         private static List<ScaleModel> _scaleModels;
 
-        public ScaleModelRepository()
-        {
-            if (_scaleModels == null)
-            {
-                var airfix = new Brand(1, "Airfix");
-                var italeri = new Brand(2, "Italeri");
-                var revell = new Brand(3, "Revell");
+        // simulacija baze podataka
 
-                _scaleModels = new List<ScaleModel>
-                {
-                new ScaleModel {Id = 1, Name = "Hawker Hurricane", ItemBrand = airfix, Category = "Zrakoplovi", Scale = "1/35", AmountAvailable = 8},
-                new ScaleModel {Id = 2, Name = "BMW Mini Cooper S", ItemBrand = italeri, Category = "Vozila", Scale = "1/71", AmountAvailable = 3},
-                new ScaleModel {Id = 3, Name = "HMS Victory", ItemBrand = revell, Category = "Jedrenjaci", Scale = "1/225", AmountAvailable = 6},
-                };
-            }
-        }
+        //public ScaleModelRepository(IConfiguration configuration)
+        //{
+        //    if (_scaleModels == null)
+        //    {
+        //        var airfix = new Brand(1, "Airfix");
+        //        var italeri = new Brand(2, "Italeri");
+        //        var revell = new Brand(3, "Revell");
+
+        //        _scaleModels = new List<ScaleModel>
+        //        {
+        //        new ScaleModel {Id = 1, Name = "Hawker Hurricane", ItemBrand = airfix, Category = "Zrakoplovi", Scale = "1/35", AmountAvailable = 8, Price = 20},
+        //        new ScaleModel {Id = 2, Name = "BMW Mini Cooper S", ItemBrand = italeri, Category = "Vozila", Scale = "1/71", AmountAvailable = 3, Price = 43},
+        //        new ScaleModel {Id = 3, Name = "HMS Victory", ItemBrand = revell, Category = "Jedrenjaci", Scale = "1/225", AmountAvailable = 6, Price = 124},
+        //        };
+        //    }
+        //}
 
 
         public void Create(ScaleModel scaleModel)

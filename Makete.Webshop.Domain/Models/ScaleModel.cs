@@ -22,7 +22,7 @@ namespace Makete.Webshop.Domain.Models
         public int AmountAvailable { get; set; }
 
         [DisplayName("Cijena")]
-        public int Price { get; set; }
+        public double Price { get; set; }
 
     }
 }
