@@ -1,6 +1,8 @@
 ﻿using Makete.Webshop.Domain.Interfaces;
 using Makete.Webshop.Domain.Models;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using System.Data;
 
 
 
@@ -9,16 +11,50 @@ namespace Makete.Webshop.Data.Repositories
 {
     public class ScaleModelRepository : IScaleModelRepository
     {
+        private static List<ScaleModel> _scaleModels;
 
         private readonly string _connectionString = string.Empty;
 
         public ScaleModelRepository(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection")!;
+
+
+            using var connection = new SqlConnection(_connectionString);
+
+            //using var command = new SqlCommand($"SELECT * FROM ScaleModels", connection);
+
+            using var command = new SqlCommand(
+                @"SELECT sm.*, b.BrandName 
+                  FROM ScaleModels sm
+                  JOIN Brands b ON sm.BrandId = b.BrandId",
+                connection);
+
+            connection.Open();
+
+            using var reader = command.ExecuteReader();
+
+            _scaleModels = new List<ScaleModel>();
+
+
+            while (reader.Read())
+            {
+                _scaleModels.Add(new ScaleModel()
+                {
+                    Id = reader.GetInt32("Id"),
+                    Name = reader.GetString("Name"),
+                    ItemBrand = new Brand { BrandId = reader.GetInt32("BrandId"), BrandName = reader.GetString("BrandName") },
+                    Category = reader.GetString("Category"),
+                    Scale = reader.GetString("Scale"),
+                    AmountAvailable = reader.GetInt32("AmountAvailable"),
+                    Price = reader.GetDecimal("Price")
+                });
+            }
+
+
         }
 
 
-        private static List<ScaleModel> _scaleModels;
 
         // simulacija baze podataka
 
@@ -37,10 +73,10 @@ namespace Makete.Webshop.Data.Repositories
         //        new ScaleModel {Id = 3, Name = "HMS Victory", ItemBrand = revell, Category = "Jedrenjaci", Scale = "1/225", AmountAvailable = 6, Price = 124},
         //        };
         //    }
-        //}
+            //}
 
 
-        public void Create(ScaleModel scaleModel)
+            public void Create(ScaleModel scaleModel)
         {
             _scaleModels.Add(scaleModel);
         }
